@@ -52,6 +52,9 @@ class Enigma
 
 
   def message_to_nums
+    message.chars.map do |char|
+      alpha_to_num[char]
+    end
   end
 
   def encode

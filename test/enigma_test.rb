@@ -139,7 +139,13 @@ class EnigmaTest < Minitest::Test
   def test_message_to_nums
     enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
     expected = [7,4,11,11,14,26,22,14,17,11,3]
-    asset_equal expected, enigma.message_to_nums
+    assert_equal expected, enigma.message_to_nums
+  end
+
+  def test_apply_final_shift
+    enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
+    expected = [10,4,3,4,17,26,14,7,20,11,22]
+    assert_equal expected, enigma.apply_shift
   end
 
 

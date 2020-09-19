@@ -10,7 +10,7 @@ class Enigma
   def create_keys
     @key.chars.each_with_index.reduce([]) do |collector, (char, index)|
       if @key.chars[index + 1]
-        collector << char + @key.chars[index + 1]
+        collector << (char + @key.chars[index + 1]).to_i
       end
       collector
     end

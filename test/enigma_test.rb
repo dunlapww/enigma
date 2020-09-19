@@ -16,9 +16,13 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_create_keys
     enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
-    assert_equal ["02","29","93","38"], enigma.create_keys
+    assert_equal [02, 29, 93, 38], enigma.create_keys
   end
 
+  def test_it_can_create_offsets
+    enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
+    assert_equal [1, 0, 2, 5], enigma.create_offsets
+  end
 
 
 

@@ -7,4 +7,13 @@ class Enigma
     @date = details[:date]
   end
 
+  def create_keys
+    @key.chars.each_with_index.reduce([]) do |collector, (char, index)|
+      if @key.chars[index + 1]
+        collector << char + @key.chars[index + 1]
+      end
+      collector
+    end
+  end
+
 end

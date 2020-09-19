@@ -60,7 +60,13 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
     enigma.stubs(:offsets).returns([5,4,2,3])
     enigma.stubs(:keys).returns([2,26,15,47])
-    assert_equal [7,3,10,23], enigma.final_shifts
+    assert_equal [7,3,17,23], enigma.final_shifts
+  end
+
+
+  def test_it_can_create_an_alpha_list
+    expected = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z  )
+    assert_equal expected, enigma.alpha_list
   end
 
 

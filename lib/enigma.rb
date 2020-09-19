@@ -36,6 +36,12 @@ class Enigma
     end
   end
 
+  def final_shifts
+    raw_shifts.map do |shift|
+      shift % 27
+    end
+  end
+
 
 
 

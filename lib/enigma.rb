@@ -1,4 +1,5 @@
 class Enigma
+  attr_reader :message, :key, :date
 
   def initialize(details)
     @message = details[:message]

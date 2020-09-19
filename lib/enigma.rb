@@ -16,12 +16,17 @@ class Enigma
   end
 
   def square_date
-    @date.to_i * @date.to_i
+    (@date.to_i * @date.to_i).to_s
   end
 
-  
-  def create_offsets
+  def int_array
+    square_date.chars.map do |string_int|
+      string_int.to_i
+    end
+  end
 
+  def create_offsets(num_of_keys = @key.length - 1)
+    int_array.pop(num_of_keys)
   end
 
   def create_keys

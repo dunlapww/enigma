@@ -42,6 +42,10 @@ class Enigma
     end
   end
 
+  def alpha_list
+    ("a".."z").to_a << " "
+  end
+
 
 
 

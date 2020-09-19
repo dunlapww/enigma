@@ -65,7 +65,8 @@ class EnigmaTest < Minitest::Test
 
 
   def test_it_can_create_an_alpha_list
-    expected = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z  )
+    enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
+    expected = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z) << " "
     assert_equal expected, enigma.alpha_list
   end
 

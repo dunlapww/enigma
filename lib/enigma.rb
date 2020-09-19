@@ -3,22 +3,22 @@ class Enigma
 
   def initialize(details)
     @message = details[:message]
-    @key = details[:key]
-    @date = details[:date] || Date.today.strftime("%d%m%y")
+    @key = details.fetch(:key, rand(99999).to_s.rjust(5,'0'))
+    @date = details.fetch(:date, Date.today.strftime("%d%m%y"))
   end
 
   def square_date
     (@date.to_i * @date.to_i).to_s
   end
 
-  def int_array
+  def squared_date_nums
     square_date.chars.map do |string_int|
       string_int.to_i
     end
   end
 
   def offsets(num_of_keys = @key.length - 1)
-    int_array.pop(num_of_keys)
+    squared_date_nums.pop(num_of_keys)
   end
 
   def keys
@@ -29,6 +29,10 @@ class Enigma
       collector
     end
   end
+
+  
+
+
 
 
 

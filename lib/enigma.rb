@@ -46,6 +46,11 @@ class Enigma
     ("a".."z").to_a << " "
   end
 
+  def encode
+  end
+
+
+
 
 
 

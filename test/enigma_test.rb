@@ -75,6 +75,12 @@ class EnigmaTest < Minitest::Test
     assert_equal "keder ohulw", enigma.encode
   end
 
+  def test_message_as_chars
+    enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
+    expected = %w(h e l l o w o r l d).insert(5," ")
+    assert_equal expected, enigma.message_as_chars
+  end
+
 
 
 

@@ -57,7 +57,18 @@ class Enigma
     end
   end
 
+  def encode_shift
+    counter = -1
+    message_to_nums.map do |num|
+      counter += 1
+      (num + final_shifts[counter % final_shifts.size]) % alpha_to_num.size
+    end
+  end
+
   def encode
+    encode_shift.reduce("") do |memo, num|
+      memo << num_to_alpha[num]
+    end
   end
 
 

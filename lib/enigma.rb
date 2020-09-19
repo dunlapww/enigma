@@ -19,6 +19,11 @@ class Enigma
     @date.to_i * @date.to_i
   end
 
+  
+  def create_offsets
+
+  end
+
   def create_keys
     @key.chars.each_with_index.reduce([]) do |collector, (char, index)|
       if @key.chars[index + 1]

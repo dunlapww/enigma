@@ -29,6 +29,12 @@ class EnigmaTest < Minitest::Test
     assert_equal 1672401025, enigma.square_date
   end
 
+  def test_it_can_convert_squared_date_to_array_of_ints
+    enigma = Enigma.new({message: "hello end",key: "02938", date: "040895"})
+    enigma.stubs(:square_date).returns("102035423")
+    assert_equal [1,0,2,0,3,5,4,2,3], enigma.int_array
+  end
+
   def test_it_can_create_offsets
     enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
     assert_equal [1, 0, 2, 5], enigma.create_offsets

@@ -14,6 +14,11 @@ class EnigmaTest < Minitest::Test
     assert_equal "040895", enigma.date
   end
 
+  def test_it_can_create_keys
+    enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
+    assert_equal ["02","29","93","38"], enigma.create_keys
+  end
+
 
 
 end

@@ -38,16 +38,26 @@ class Enigma
 
   def final_shifts
     raw_shifts.map do |shift|
-      shift % alpha_list.size
+      shift % num_to_alpha.size
     end
   end
 
-  def alpha_list
-    ("a".."z").to_a << " "
+  def num_to_alpha
+    (0..26).zip(("a".."z").to_a << " ").to_h
+  end
+
+  def alpha_to_num
+    num_to_alpha.invert
+  end
+
+
+  def message_to_nums
   end
 
   def encode
   end
+
+
 
 
 

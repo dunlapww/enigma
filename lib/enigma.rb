@@ -4,15 +4,7 @@ class Enigma
   def initialize(details)
     @message = details[:message]
     @key = details[:key]
-    @date = get_date(details)
-  end
-
-  def get_date(details)
-    if details[:date].nil?
-      @date = Date.today.strftime("%d%m%y")
-    else
-      @date = details[:date]
-    end
+    @date = details[:date] || Date.today.strftime("%d%m%y")
   end
 
   def square_date
@@ -37,6 +29,7 @@ class Enigma
       collector
     end
   end
+
 
 
 end

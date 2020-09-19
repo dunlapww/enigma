@@ -21,7 +21,14 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_take_a_default_of_todays_date
     enigma = Enigma.new({message: "hello end",key: "02938"})
-    assert_equal "190920", enigma.get_date({message: "hello end",key: "02938"})
+    Date.stubs(:today).returns(Date.new(2020,9,19))
+    assert_equal "190920", enigma.date
+  end
+
+  def test_it_can_take_a_default_random_key
+    enigma = Enigma.new({message: "hello end",key: "02938"})
+    enigma.stubs(:rand).returns(1234)
+    assert_equal "01234", enigma.key
   end
 
   def test_it_can_return_square_of_date_as_string

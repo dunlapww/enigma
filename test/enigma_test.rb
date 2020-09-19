@@ -138,7 +138,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.message_to_nums
   end
 
-  def test_apply_final_shift
+  def test_apply_encode_shift
     enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
     expected = [10,4,3,4,17,26,14,7,20,11,22]
     assert_equal expected, enigma.encode_shift
@@ -157,6 +157,12 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
     assert_equal expected, enigma.encrypt
+  end
+
+  def test_it_can_apply_decode_shift
+    enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
+    expected = [7,4,11,11,14,26,22,14,17,11,3]
+    assert_equal expected, enigma.decode_shift
   end
 
 

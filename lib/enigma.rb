@@ -71,4 +71,17 @@ class Enigma
     end
   end
 
+  def encrypt
+    {
+      encryption: encode_message,
+      key: @key,
+      date: @date
+    }
+  end
+
+  def decode
+  end
+
+
+
 end

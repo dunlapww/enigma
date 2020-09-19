@@ -25,11 +25,11 @@ class Enigma
     end
   end
 
-  def create_offsets(num_of_keys = @key.length - 1)
+  def offsets(num_of_keys = @key.length - 1)
     int_array.pop(num_of_keys)
   end
 
-  def create_keys
+  def keys
     @key.chars.each_with_index.reduce([]) do |collector, (char, index)|
       if @key.chars[index + 1]
         collector << (char + @key.chars[index + 1]).to_i

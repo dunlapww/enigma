@@ -24,6 +24,11 @@ class EnigmaTest < Minitest::Test
     assert_equal "190920", enigma.get_date({message: "hello end",key: "02938"})
   end
 
+  def test_it_can_convert_date_to_number_and_square
+    enigma = Enigma.new({message: "hello end",key: "02938", date: "040895"})
+    assert_equal 1672401025, enigma.square_date
+  end
+
   def test_it_can_create_offsets
     enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
     assert_equal [1, 0, 2, 5], enigma.create_offsets

@@ -65,22 +65,10 @@ class Enigma
     end
   end
 
-  def encode
+  def encode_message
     encode_shift.reduce("") do |memo, num|
       memo << num_to_alpha[num]
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

@@ -146,7 +146,17 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_encode_a_message
     enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
-    assert_equal "keder ohulw", enigma.encode
+    assert_equal "keder ohulw", enigma.encode_message
+  end
+
+  def test_it_can_encrypt
+    enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
+    expected = {
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected, enigma.encrypt
   end
 
 

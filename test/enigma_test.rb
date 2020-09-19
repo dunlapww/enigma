@@ -56,6 +56,13 @@ class EnigmaTest < Minitest::Test
     assert_equal [7,30,17,50], enigma.raw_shifts
   end
 
+  def test_it_can_create_final_shifts
+    enigma = Enigma.new({message: "hello end",key: "02938",date: "040895"})
+    enigma.stubs(:offsets).returns([5,4,2,3])
+    enigma.stubs(:keys).returns([2,26,15,47])
+    assert_equal [7,3,10,23], enigma.final_shifts
+  end
+
 
 
 

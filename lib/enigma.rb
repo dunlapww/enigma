@@ -30,7 +30,15 @@ class Enigma
     end
   end
 
-  
+  def raw_shifts
+    offsets.each_with_index.reduce([]) do |collector, (offset, index)|
+      collector << offset + keys[index]
+    end
+  end
+
+
+
+
 
 
 

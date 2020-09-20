@@ -9,4 +9,8 @@ class Alphabet
     @letters.size
   end
 
+  def num_to_alpha
+    (0..size).zip(letters).to_h
+  end
+
 end

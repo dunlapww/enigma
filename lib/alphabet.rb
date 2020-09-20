@@ -1,7 +1,8 @@
 class Alphabet
+  attr_reader :letters
 
   def initialize
-    @alpha = ("a".."z").to_a << " "
+    @letters = ("a".."z").to_a << " "
   end
-  
+
 end

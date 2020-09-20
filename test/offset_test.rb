@@ -11,4 +11,9 @@ class OffsetTest < Minitest::Test
     offset = Offset.new("040895")
     assert_equal "040895", offset.string_date
   end
+
+  def test_it_can_return_square_of_date_as_string
+    offset = Offset.new("040895")
+    assert_equal "1672401025", offset.square_date
+  end
 end

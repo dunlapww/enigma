@@ -79,7 +79,7 @@ class Enigma
     }
   end
 
-  def decode
+  def decode_shift
   end
 
 

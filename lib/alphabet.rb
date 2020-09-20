@@ -10,7 +10,11 @@ class Alphabet
   end
 
   def num_to_alpha
-    (0..size).zip(letters).to_h
+    (0..size - 1).zip(letters).to_h
+  end
+
+  def alpha_to_num
+    num_to_alpha.invert
   end
 
 end

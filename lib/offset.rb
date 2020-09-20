@@ -5,4 +5,8 @@ class Offset
     @string_date = string_date
   end
 
+  def square_date
+    (@string_date.to_i * @string_date.to_i).to_s
+  end
+
 end

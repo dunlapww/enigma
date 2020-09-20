@@ -9,4 +9,10 @@ class Offset
     (@string_date.to_i * @string_date.to_i).to_s
   end
 
+  def squared_date_nums
+    square_date.chars.map do |string_int|
+      string_int.to_i
+    end
+  end
+
 end

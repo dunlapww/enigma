@@ -38,9 +38,9 @@ class ShiftTest < Minitest::Test
     key = Key.new("02938")
     offset = Offset.new("040895")
     shift = Shift.new(key, offset)
-    shift.stubs(:offsets).returns([5,4,2,3])
-    shift.stubs(:keys).returns([2,26,15,47])
-    assert_equal [7,30,17,50], shift.raw_shifts
+    shift.stubs(:key_offsets).returns([5,4,2,3])
+    shift.stubs(:keys).returns([2,29,93,38])
+    assert_equal [7,33,95,41], shift.raw_shifts
   end
 
 end

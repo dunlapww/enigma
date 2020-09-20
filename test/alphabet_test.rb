@@ -79,4 +79,9 @@ class AlphabetTest < Minitest::Test
     }
     assert_equal expected, alphabet.alpha_to_num
   end
+
+  def test_it_knows_its_size
+    alphabet = Alphabet.new
+    assert_equal 27, alphabet.size
+  end
 end

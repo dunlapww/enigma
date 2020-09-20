@@ -13,7 +13,7 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_create_keys
-    key = Key.new("01234")
+    key = Key.new("02938")
     assert_equal [2, 29, 93, 38], key.keys
   end
 

@@ -19,11 +19,20 @@ class ShiftTest < Minitest::Test
     assert_equal [1, 6, 7, 2, 4, 0, 1, 0, 2, 5], shift.offsets
   end
 
-  def test_offsets_greater_than_keys
+  def test_it_can_check_valid_keys
     key = Key.new("02938")
     offset = Offset.new("040895")
     shift = Shift.new(key, offset)
     assert shift.valid_keys?
+  end
+
+  def test_it_can_create_raw_shifts
+    key = Key.new("02938")
+    offset = Offset.new("040895")
+    shift = Shift.new(key, offset)
+    shift.stubs(:offsets).returns([5,4,2,3])
+    shift.stubs(:keys).returns([2,26,15,47])
+    assert_equal [7,30,17,50], shift.raw_shifts
   end
 
 end

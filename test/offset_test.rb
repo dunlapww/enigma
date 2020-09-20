@@ -22,4 +22,5 @@ class OffsetTest < Minitest::Test
     offset.stubs(:square_date).returns("102035423")
     assert_equal [1,0,2,0,3,5,4,2,3], offset.squared_date_nums
   end
+
 end

@@ -14,5 +14,4 @@ class Offset
       string_int.to_i
     end
   end
-
 end

@@ -23,7 +23,7 @@ class ShiftTest < Minitest::Test
     key = Key.new("02938")
     offset = Offset.new("040895")
     shift = Shift.new(key, offset)
-    assert shift.valid_keys
+    assert shift.valid_keys?
   end
 
 end

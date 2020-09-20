@@ -6,5 +6,7 @@ class Shift
     @offsets = offset.squared_date_nums
   end
 
-
+  def valid_keys?
+    offsets.size > keys.size
+  end
 end

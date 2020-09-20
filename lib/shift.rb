@@ -14,7 +14,7 @@ class Shift
     offsets.pop(keys.size)
   end
 
-  def raw_shifts
+  def shifts
     key_offsets.each_with_index.reduce([]) do |collector, (offset, index)|
       collector << offset + @keys[index]
     end

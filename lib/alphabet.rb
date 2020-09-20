@@ -5,7 +5,8 @@ class Alphabet
     @letters = ("a".."z").to_a << " "
   end
 
-  def alpha_to_num
+  def size
+    @letters.size
   end
 
 end

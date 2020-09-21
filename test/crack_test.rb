@@ -26,7 +26,12 @@ class CrackTest < Minitest::Test
 
   def test_it_knows_offset_for__end
     crack = Crack.new("vjqtbeaweqihssi","291018")
-    assert_equal [6, 3, 2, 4], crack.end_offsets
+    assert_equal [4, 6, 3, 2], crack.end_offsets
+  end
+
+  def test_it_calc_end_letter_positions
+    crack = Crack.new("vjqtbeaweqihssi","291018")
+    assert_equal [2,5,3,2], crack.end_letter_positions
   end
 
 

@@ -4,6 +4,7 @@ class Crack
   def initialize(message, date)
     @message = message
     @date = date
+    @alphabet = Alphabet.new
   end
 
   def offsets
@@ -12,6 +13,8 @@ class Crack
   end
 
   def end_offsets
+    rotation = (@message.length - offsets.size) % offsets.size
+    offsets.rotate(rotation)
   end
 
 

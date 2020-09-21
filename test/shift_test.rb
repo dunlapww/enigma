@@ -43,4 +43,11 @@ class ShiftTest < Minitest::Test
     assert_equal [7,33,95,41], shift.shifts
   end
 
+  def test_shift_has_a_size
+    key = Key.new("02938")
+    offset = Offset.new("040895")
+    shift = Shift.new(key, offset)
+    assert_equal 4, shift.shifts_size
+  end
+
 end

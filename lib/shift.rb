@@ -20,4 +20,10 @@ class Shift
     end
   end
 
+  def shifts_size
+    shifts.size
+  end
+
+
+
 end

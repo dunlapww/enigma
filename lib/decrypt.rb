@@ -4,8 +4,7 @@ require './lib/shift'
 require './lib/alphabet'
 require './lib/cryptable'
 
-
-class Encrypt
+class Decrypt
   include Cryptable
   attr_reader :message, :key, :date
 
@@ -17,8 +16,8 @@ class Encrypt
     @alphabet = Alphabet.new
   end
 
-  def encode_shift
-    @shift.shifts
+  def decode_shift
+    @shift.shifts.map {|num| -1 * num}
   end
 
 end

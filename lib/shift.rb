@@ -6,10 +6,6 @@ class Shift
     @offsets = offset.squared_date_nums
   end
 
-  def valid_keys?
-    offsets.size > keys.size
-  end
-
   def key_offsets
     offsets.pop(keys.size)
   end
@@ -18,10 +14,6 @@ class Shift
     key_offsets.each_with_index.reduce([]) do |collector, (offset, index)|
       collector << offset + @keys[index]
     end
-  end
-
-  def shifts_size
-    shifts.size
   end
 
 

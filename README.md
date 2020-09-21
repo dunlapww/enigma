@@ -1,6 +1,6 @@
 The Enigma project can take a message in the form of a string and encode it using Enigma encryption algorithm which requires a randomingly generated 5 digit number and a date. It can also decode a message by reversing the Enigma algorithm.
 
-My assessment: 3.6
+My assessment: 3.8
 
 Functionality: 3
 It can encode and decode messages and use the command line to do so.

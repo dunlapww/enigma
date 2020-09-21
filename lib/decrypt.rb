@@ -16,7 +16,11 @@ class Decrypt
 
   def message_to_nums
     @message.chars.map do |char|
-      @alphabet.alpha_to_num[char]
+      if @alphabet.letters.include?(char)
+        @alphabet.alpha_to_num[char]
+      else
+        char
+      end
     end
   end
 
@@ -24,15 +28,23 @@ class Decrypt
     shifts = @shift.shifts.map {|num| -1 * num}
     counter = -1
     message_to_nums.map do |num|
-      counter += 1
-      total_shift = num + shifts[counter % shifts.size]
-      final_shift = total_shift % @alphabet.size
+      if num.class == String
+        num
+      else
+        counter += 1
+        total_shift = num + shifts[counter % shifts.size]
+        final_shift = total_shift % @alphabet.size
+      end
     end
   end
 
   def decode_message
     decode_shift.reduce("") do |memo, num|
-      memo << @alphabet.num_to_alpha[num]
+      if num.class == String
+        memo << num
+      else
+        memo << @alphabet.num_to_alpha[num]
+      end
     end
   end
 

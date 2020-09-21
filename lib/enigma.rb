@@ -22,14 +22,14 @@ class Enigma
       @alphabet.alpha_to_num[char]
     end
   end
-  #
-  # def encode_shift
-  #   counter = -1
-  #   message_to_nums.map do |num|
-  #     counter += 1
-  #     (num + final_shifts[counter % final_shifts.size]) % alpha_to_num.size
-  #   end
-  # end
+
+  def encode_shift
+    counter = -1
+    message_to_nums.map do |num|
+      counter += 1
+      (num + final_shifts[counter % final_shifts.size]) % alpha_to_num.size
+    end
+  end
   #
   # def encode_message
   #   encode_shift.reduce("") do |memo, num|

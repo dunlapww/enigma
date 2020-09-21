@@ -41,7 +41,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_apply_encode_shift
-    skip
     enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
     expected = [10,4,3,4,17,26,14,7,20,11,22]
     assert_equal expected, enigma.encode_shift

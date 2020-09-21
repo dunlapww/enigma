@@ -16,15 +16,12 @@ class Enigma
       shift % @alphabet.size
     end
   end
-  #
-  #
-  #
-  #
-  # def message_to_nums
-  #   message.chars.map do |char|
-  #     alpha_to_num[char]
-  #   end
-  # end
+
+  def message_to_nums
+    @message.chars.map do |char|
+      @alphabet.alpha_to_num[char]
+    end
+  end
   #
   # def encode_shift
   #   counter = -1

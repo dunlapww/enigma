@@ -35,7 +35,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_message_to_nums
-    skip
     enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
     expected = [7,4,11,11,14,26,22,14,17,11,3]
     assert_equal expected, enigma.message_to_nums

@@ -26,4 +26,6 @@ class Enigma
     }
   end
 
+  
+
 end

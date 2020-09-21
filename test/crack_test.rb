@@ -6,4 +6,6 @@ class CrackTest < Minitest::Test
     crack = Crack.new()
     assert_instance_of Crack, crack
   end
+
+  
 end

@@ -38,4 +38,14 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, enigma.decrypt("keder ohulw","02715","040895")
   end
+
+  def test_it_can_crack
+    enigma = Enigma.new()
+    expected = {
+      encryption: "hello world end",
+      key: "08304",
+      date: "291018"
+    }
+    assert_equal expected, enigma.crack("vjqtbeaweqihssi","291018")
+  end
 end

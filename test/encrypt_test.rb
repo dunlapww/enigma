@@ -15,14 +15,12 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_can_take_a_default_of_todays_date
-    skip
-    encrypt = Encrypt.new("hello world","02938","040895")
+    encrypt = Encrypt.new("hello world","02938")
     Date.stubs(:today).returns(Date.new(2020,9,19))
-    assert_equal "190920", encrypt.date
+    assert_equal "200920", encrypt.date
   end
 
   def test_it_can_take_a_default_random_key
-    skip
     encrypt = Encrypt.new({message: "hello world"})
     assert_equal "01234", encrypt.key
   end
@@ -40,7 +38,7 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_can_encode_a_message
-    enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
-    assert_equal "keder ohulw", enigma.encode_message
+    encrypt = Encrypt.new("hello world","02715","040895")
+    assert_equal "keder ohulw", encrypt.encode_message
   end
 end

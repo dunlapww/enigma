@@ -26,12 +26,14 @@ class Encrypt
   end
 
   def encode_shift
+    shifts = @shift.shifts
     counter = -1
     message_to_nums.map do |num|
       counter += 1
-      require "pry"; binding.pry
-      final
-      (num + final_shifts[counter % final_shifts.size]) % @alphabet.size
+      total_shift = num + shifts[counter % shifts.size]
+      final_shift = total_shift % @alphabet.size
     end
   end
+
+
 end

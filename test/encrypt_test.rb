@@ -40,7 +40,7 @@ class EncryptTest < Minitest::Test
   end
 
   def test_apply_encode_shift
-    encrypt = Encrypt.new("hello world","02938","040895")
+    encrypt = Encrypt.new("hello world","02715","040895")
     expected = [10,4,3,4,17,26,14,7,20,11,22]
     assert_equal expected, encrypt.encode_shift
   end

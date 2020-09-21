@@ -26,6 +26,15 @@ class Enigma
     }
   end
 
-  
+  def crack(message, date = Date.today.strftime("%d%m%y"))
+    crack = Crack.new(message.downcase, date)
+    {
+      decryption: crack.decoded_message,
+      key: crack.key,
+      date: date
+    }
+  end
+
+
 
 end

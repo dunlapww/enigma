@@ -3,9 +3,14 @@ require './test/test_helper'
 class CrackTest < Minitest::Test
 
   def test_it_exists
-    crack = Crack.new()
+    crack = Crack.new("vjqtbeaweqihssi","291018")
     assert_instance_of Crack, crack
   end
 
-  
+  def test_it_can_decode_message
+    crack = Crack.new("vjqtbeaweqihssi","291018")
+    assert_equal "hello world end", crack.decoded_message
+  end
+
+
 end

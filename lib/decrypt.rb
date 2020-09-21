@@ -1,3 +1,8 @@
+require './lib/key'
+require './lib/offset'
+require './lib/shift'
+require './lib/alphabet'
+
 class Decrypt
   attr_reader :message, :key, :date
 

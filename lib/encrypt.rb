@@ -1,11 +1,13 @@
+require './lib/key'
+require './lib/offset'
+require './lib/shift'
+require './lib/alphabet'
+
+
 class Encrypt
   attr_reader :message, :key, :date
 
-  def initialize(
-    message,
-    key = rand(99999).to_s.rjust(5,'0'),
-    date = Date.today.strftime("%d%m%y")
-  )
+  def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
@@ -15,7 +17,11 @@ class Encrypt
 
   def message_to_nums
     @message.chars.map do |char|
-      @alphabet.alpha_to_num[char]
+      if @alphabet.letters.include?(char)
+        @alphabet.alpha_to_num[char]
+      else
+        char
+      end
     end
   end
 
@@ -23,15 +29,23 @@ class Encrypt
     shifts = @shift.shifts
     counter = -1
     message_to_nums.map do |num|
-      counter += 1
-      total_shift = num + shifts[counter % shifts.size]
-      final_shift = total_shift % @alphabet.size
+      if num.class == String
+        num
+      else
+        counter += 1
+        total_shift = num + shifts[counter % shifts.size]
+        final_shift = total_shift % @alphabet.size
+      end
     end
   end
 
   def encode_message
     encode_shift.reduce("") do |memo, num|
-      memo << @alphabet.num_to_alpha[num]
+      if num.class == String
+        memo << num
+      else
+        memo << @alphabet.num_to_alpha[num]
+      end
     end
   end
 

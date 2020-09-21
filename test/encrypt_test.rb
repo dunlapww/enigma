@@ -38,7 +38,7 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_can_encode_a_message
-    encrypt = Encrypt.new("hello world","02715","040895")
-    assert_equal "keder ohulw", encrypt.encode_message
+    encrypt = Encrypt.new("he$llo world!","02715","040895")
+    assert_equal "ke$der ohulw!", encrypt.encode_message
   end
 end

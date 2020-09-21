@@ -12,9 +12,14 @@ class CrackTest < Minitest::Test
     assert_equal "hello world end", crack.decoded_message
   end
 
-  def test_it_can_get_offsets
+  def test_it_can_set_offsets
     crack = Crack.new("vjqtbeaweqihssi","291018")
-    assert_equal [1, 0, 2, 5], crack.offsets
+    assert_equal [6, 3, 2, 4], crack.set_offsets("291018")
+  end
+
+  def test_it_knows_offset_for__end
+    crack = Crack.new("vjqtbeaweqihssi","291018")
+    assert_equal [6, 3, 2, 4], crack.end_offsets
   end
 
 

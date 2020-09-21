@@ -27,12 +27,6 @@ class EncryptTest < Minitest::Test
     assert_equal "01234", encrypt.key
   end
 
-  def test_it_can_create_final_shifts
-    encrypt = Encrypt.new("hello world","02938","040895")
-    #shift.shifts = [3, 29, 95, 43], @alphabet.size = 27
-    assert_equal [3, 2, 14, 16], encrypt.final_shifts
-  end
-
   def test_message_to_nums
     encrypt = Encrypt.new("hello world","02938","040895")
     expected = [7,4,11,11,14,26,22,14,17,11,3]
@@ -43,5 +37,10 @@ class EncryptTest < Minitest::Test
     encrypt = Encrypt.new("hello world","02715","040895")
     expected = [10,4,3,4,17,26,14,7,20,11,22]
     assert_equal expected, encrypt.encode_shift
+  end
+
+  def test_it_can_encode_a_message
+    enigma = Enigma.new({message: "hello world",key: "02715",date: "040895"})
+    assert_equal "keder ohulw", enigma.encode_message
   end
 end

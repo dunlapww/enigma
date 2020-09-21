@@ -13,12 +13,6 @@ class Encrypt
     @alphabet = Alphabet.new
   end
 
-  def final_shifts
-    @shift.shifts.map do |shift|
-      shift % @alphabet.size
-    end
-  end
-
   def message_to_nums
     @message.chars.map do |char|
       @alphabet.alpha_to_num[char]
@@ -32,6 +26,12 @@ class Encrypt
       counter += 1
       total_shift = num + shifts[counter % shifts.size]
       final_shift = total_shift % @alphabet.size
+    end
+  end
+
+  def encode_message
+    encode_shift.reduce("") do |memo, num|
+      memo << @alphabet.num_to_alpha[num]
     end
   end
 

@@ -24,20 +24,21 @@ class CrackTest < Minitest::Test
     assert_equal [6, 3, 2, 4], crack.offsets
   end
 
-  def test_it_knows_offset_for__end
-    crack = Crack.new("vjqtbeaweqihssi","291018")
-    assert_equal [4, 6, 3, 2], crack.end_offsets
-  end
-
-  def test_it_calc_end_letter_positions
-    crack = Crack.new("vjqtbeaweqihssi","291018")
-    assert_equal [2,5,3,2], crack.end_letter_positions
-  end
-
   def test_it_can_clean_a_message
     crack = Crack.new("vjqtbeaweqi!hssi","291018")
     assert_equal "vjqtbeaweqihssi", crack.clean_message
   end
+
+  def test_it_knows_offset_for__end
+    crack = Crack.new("vjqtbeaweqi!hssi","291018")
+    assert_equal [4, 6, 3, 2], crack.end_offsets
+  end
+
+  def test_it_calc_end_letter_positions
+    crack = Crack.new("vjqtbeawe!qihssi","291018")
+    assert_equal [7, 18, 18, 8], crack.end_letter_positions
+  end
+
 
 
 end

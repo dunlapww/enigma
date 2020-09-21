@@ -11,7 +11,7 @@ class Enigma
   )
     encrypt = Encrypt.new(message.downcase, key, date)
     {
-      encryption: encrypt.encode_message,
+      encryption: encrypt.translate_message(encrypt.encode_shift),
       key: key,
       date: date
     }
@@ -20,7 +20,7 @@ class Enigma
   def decrypt(message, key, date = Date.today.strftime("%d%m%y"))
     decrypt = Decrypt.new(message.downcase, key, date)
     {
-      decryption: decrypt.decode_message,
+      decryption: decrypt.translate_message(decrypt.decode_shift),
       key: key,
       date: date
     }

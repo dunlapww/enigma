@@ -46,7 +46,7 @@ class AlphabetTest < Minitest::Test
     assert_equal expected, alphabet.num_to_alpha
   end
 
-  def test_num_to_alpha
+  def test_alpha_to_num
     alphabet = Alphabet.new
     expected = {
       "a" => 0,

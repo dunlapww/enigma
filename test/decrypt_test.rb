@@ -20,14 +20,19 @@ class DecryptTest < Minitest::Test
     assert_equal expected, decrypt.message_to_nums
   end
 
-  def test_apply_decode_shift
+  def test_it_can_create_decode_shift
+    decrypt = Decrypt.new("keder ohulw","02715","040895")
+    assert_equal [-3, -27, -73, -20], decrypt.decode_shift
+  end
+
+  def test_it_can_apply_decode_shift
     decrypt = Decrypt.new("keder ohulw","02715","040895")
     expected = [7, 4, 11, 11, 14, 26, 22, 14, 17, 11, 3]
-    assert_equal expected, decrypt.decode_shift
+    assert_equal expected, decrypt.apply_shift(decrypt.decode_shift)
   end
 
   def test_it_can_decode_a_message
     decrypt = Decrypt.new("keder ohulw","02715","040895")
-    assert_equal "hello world", decrypt.decode_message
+    assert_equal "hello world", decrypt.translate_message(decrypt.decode_shift)
   end
 end

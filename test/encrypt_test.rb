@@ -14,31 +14,27 @@ class EncryptTest < Minitest::Test
     assert_equal "040895", encrypt.date
   end
 
-  def test_it_can_take_a_default_of_todays_date
-    encrypt = Encrypt.new("hello world","02938")
-    Date.stubs(:today).returns(Date.new(2020,9,19))
-    assert_equal "200920", encrypt.date
-  end
-
-  def test_it_can_take_a_default_random_key
-    encrypt = Encrypt.new({message: "hello world"})
-    assert_equal "01234", encrypt.key
-  end
-
   def test_message_to_nums
     encrypt = Encrypt.new("hello world","02938","040895")
     expected = [7,4,11,11,14,26,22,14,17,11,3]
     assert_equal expected, encrypt.message_to_nums
   end
 
+  def test_it_can_create_encode_shift
+    encrypt = Encrypt.new("hello world","02715","040895")
+    expected = [3, 27, 73, 20]
+    assert_equal expected, encrypt.encode_shift
+  end
+
+
   def test_apply_encode_shift
     encrypt = Encrypt.new("hello world","02715","040895")
     expected = [10,4,3,4,17,26,14,7,20,11,22]
-    assert_equal expected, encrypt.encode_shift
+    assert_equal expected, encrypt.apply_shift(encrypt.encode_shift)
   end
 
   def test_it_can_encode_a_message
     encrypt = Encrypt.new("he$llo world!","02715","040895")
-    assert_equal "ke$der ohulw!", encrypt.encode_message
+    assert_equal "ke$der ohulw!", encrypt.translate_message(encrypt.encode_shift)
   end
 end

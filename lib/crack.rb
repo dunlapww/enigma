@@ -17,6 +17,11 @@ class Crack
     offsets.rotate(rotation)
   end
 
+  def end_letter_positions
+    @message.pop(4).map do |letter|
+    end
+  end
+
 
   def decoded_message
   end

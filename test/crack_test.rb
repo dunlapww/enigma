@@ -34,5 +34,10 @@ class CrackTest < Minitest::Test
     assert_equal [2,5,3,2], crack.end_letter_positions
   end
 
+  def test_it_can_clean_a_message
+    crack = Crack.new("vjqtbeaweqi!hssi","291018")
+    assert_equal "vjqtbeaweqihssi", crack.clean_message
+  end
+
 
 end

@@ -1,5 +1,15 @@
 The Enigma project can take a message in the form of a string and encode it using Enigma encryption algorithm which requires a randomingly generated 5 digit number and a date. It can also decode a message by reversing the Enigma algorithm.
 
+**ITERATION PATTERN NOTE**
+My runners are called encrypt_runner.rb and decrypt_runner.rb because encrypt.rb and decrypt.rb were already taken as class names.
+When running from console, call as follows:
+```
+ruby ./lib/encrypt_runner.rb message.txt encrypted.txt    
+ruby ./lib/decrypt_runner.rb encrypted.txt decrypted.txt 65228 210920
+```
+
+
+
 My assessment: 3.8
 
 Functionality: 3.25

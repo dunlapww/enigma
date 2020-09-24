@@ -29,19 +29,14 @@ class CrackTest < Minitest::Test
     assert_equal "vjqtbeaweqihssi", crack.clean_message
   end
 
-  def test_it_knows_offset_for__end
-    crack = Crack.new("vjqtbeaweqi!hssi","291018")
-    assert_equal [4, 6, 3, 2], crack.end_offsets
-  end
-
   def test_it_calc_end_letter_positions
     crack = Crack.new("vjqtbeawe!qihssi","291018")
     assert_equal [7, 18, 18, 8], crack.end_letter_positions
   end
 
   def test_rotate_end_letters
-    crack = Crack.new("vjqtbeawe!qihssi","291018")
-    assert_equal [""], crack.rotate_end
+    crack = Crack.new("keqtaomthnw", "40895")
+    assert_equal [7, 13, 22, 19], crack.rotate_end
   end
 
 

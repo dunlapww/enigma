@@ -21,18 +21,18 @@ class Crack
     end
   end
 
-  def end_offsets
-    rotation = (clean_message.length - offsets.size) % offsets.size
-    offsets.rotate(rotation)
-  end
-
   def end_letter_positions
     clean_message.chars.pop(4).map do |letter|
       @alphabet.alpha_to_num[letter]
     end
   end
 
-  
+  def rotate_end
+    rotation = (clean_message.length - offsets.size) % offsets.size
+    end_letter_positions.rotate(-1 * rotation)
+  end
+
+
 
 
   def decoded_message

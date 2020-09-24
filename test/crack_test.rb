@@ -39,6 +39,11 @@ class CrackTest < Minitest::Test
     assert_equal [7, 18, 18, 8], crack.end_letter_positions
   end
 
+  def test_rotate_end_letters
+    crack = Crack.new("vjqtbeawe!qihssi","291018")
+    assert_equal [""], crack.rotate_end
+  end
+
 
 
 end

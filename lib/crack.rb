@@ -32,6 +32,8 @@ class Crack
     end
   end
 
+  
+
 
   def decoded_message
   end

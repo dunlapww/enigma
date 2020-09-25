@@ -72,9 +72,9 @@ class CrackTest < Minitest::Test
 
   def test_cracks
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal "02715", crack.cracked
+    assert_equal ["02715"], crack.cracked
     crack = Crack.new("qgxug!qtunpc", "300536")
-    assert_equal "02715", crack.cracked
+    assert_equal ["02715"], crack.cracked
   end
 
 end

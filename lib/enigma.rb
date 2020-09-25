@@ -29,16 +29,13 @@ class Enigma
 
   def crack(message, date = Date.today.strftime("%d%m%y"))
     crack = Crack.new(message.downcase, date)
-    if crack.cracked.length > 5
-      crack.cracked
-    else
-      decrypt = Decrypt.new(message.downcase, crack.cracked, date)
-      {
-        decryption: decrypt.translate_message(decrypt.decode_shift),
-        key: crack.cracked,
-        date: date
-      }
-    end
+    crack.cracked.size == 1 ? crk_key = crack.cracked[0] : crk_key = crack.cracked
+    decrypt = Decrypt.new(message.downcase, crack.cracked[0], date)
+    {
+      decryption: decrypt.translate_message(decrypt.decode_shift),
+      key: crk_key,
+      date: date
+    }
   end
 
 

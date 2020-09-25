@@ -46,19 +46,62 @@ class Crack
     keys = []
     " end".length.times do |key|
       key_options = (0..4).map do |num|
-        (end_encoded_pos[key] - offsets[key] - end_decoded_pos[key]) + (@alphabet.size * num)
+        number = (end_encoded_pos[key] - offsets[key] - end_decoded_pos[key]) + (@alphabet.size * num)
+        number.to_s.rjust(2,"0")
       end.select do |num|
-        num.to_s.length <= 2
+        num.length <= 2
       end
       keys << key_options
     end
     keys
   end
 
-  def cracks
-    
-
+  def cracked
+    cracked = ""
+    all_key_options[0].each do |a_key|
+      a_num = a_key[-1]
+      all_key_options[1].each do |b_key|
+        ab_num = b_key[0]
+        if a_num == ab_num
+          b_num = b_key[-1]
+          all_key_options[2].each do |c_key|
+            bc_num = c_key[0]
+            if b_num == bc_num
+              c_num = c_key[-1]
+              all_key_options[3].each do |d_key|
+                cd_num = d_key[0]
+                if c_num == cd_num
+                  return cracked = a_key + c_key + d_key[-1]
+                else
+                  return "This code is more complex and requires a different crack algorithm!"
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+    cracked
   end
+
+
+
+  # def cracks
+  #   key
+  #   all_key_options.each_with_index do |keys, index|
+  #     keys.each do |key|
+  #       prev_match = key.to_s[-1].to_i
+  #       if keys[index + 1].nil?
+  #         break
+  #       else
+  #         keys[index+ 1].each do |next_key|
+  #           next_match = next_key.to_s[0].to_i
+  #
+  #       require "pry"; binding.pry
+  #     end
+  #   end
+  # end
+
 
 
 

@@ -29,6 +29,11 @@ class CrackTest < Minitest::Test
     assert_equal "vjqtbeaweqihssi", crack.clean_message
   end
 
+  def test_it_can_return_clean_message_length
+    crack = Crack.new("vjqtbeaweqi!hssi","291018")
+    assert_equal 10, crack.clean_message_length
+  end
+
   def test_it_calc_end_letter_positions
     crack = Crack.new("vjqtbeawe!qihssi","291018")
     assert_equal [7, 18, 18, 8], crack.end_letter_positions
@@ -46,17 +51,18 @@ class CrackTest < Minitest::Test
 
   def test_all_keys
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal [2, 29, 56, 83], crack.all_key_options
+    assert_equal [["02", "29", "56", "83"], ["00", "27", "54", "81"], ["17", "44", "71", "98"], ["15", "42", "69", "96"]], crack.all_key_options
   end
 
   def test_rotation
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal -3, crack.rotation
+    crack.stubs(:length).returns(11)
+    assert_equal -2, crack.rotation
   end
 
   def test_cracks
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal [], crack.cracks
+    assert_equal "02715", crack.cracked
   end
 
 

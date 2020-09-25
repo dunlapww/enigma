@@ -34,10 +34,21 @@ class CrackTest < Minitest::Test
     assert_equal [7, 18, 18, 8], crack.end_letter_positions
   end
 
-  def test_rotate_end_letters
+  def test_end_encoded_pos
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal [7, 13, 22, 19], crack.rotate_end
+    assert_equal [7, 13, 22, 19], crack.end_encoded_pos
   end
+
+  def test_end_decoded_pos
+    assert_equal [4, 3, 2, 1], crack.end_decoded_pos
+  end
+
+  def test_find_a_key
+    crack = Crack.new("keqtaomthnw", "40895")
+    assert_equal [2, 29, 56, 83], crack.a_key_options
+  end
+
+
 
 
 

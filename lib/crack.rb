@@ -31,16 +31,6 @@ class Crack
 
   def end_letter_positions
     end_letters.map do |letter|
-    end
-  end
-
-  def end_offsets
-    rotation = (clean_message.length - offsets.size) % offsets.size
-    offsets.rotate(rotation)
-  end
-
-  def end_letter_positions
-    clean_message.chars.pop(4).map do |letter|
       @alphabet.alpha_to_num[letter]
     end
   end
@@ -75,7 +65,7 @@ class Crack
   end
 
   def cracked
-    cracked = ""
+    cracked = []
     all_key_options[0].each do |a_key|
       a_num = a_key[-1]
       all_key_options[1].each do |b_key|
@@ -89,8 +79,7 @@ class Crack
               all_key_options[3].each do |d_key|
                 cd_num = d_key[0]
                 if c_num == cd_num
-                  cracked = a_key + c_key + d_key[-1]
-                  return cracked
+                  cracked << a_key + c_key + d_key[-1]
                 end
               end
             end
@@ -98,6 +87,7 @@ class Crack
         end
       end
     end
+    cracked
   end
 
 end

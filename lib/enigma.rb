@@ -32,7 +32,6 @@ class Enigma
     if crack.cracked.length > 5
       crack.cracked
     else
-      require "pry"; binding.pry
       decrypt = Decrypt.new(message.downcase, crack.cracked, date)
       {
         decryption: decrypt.translate_message(decrypt.decode_shift),

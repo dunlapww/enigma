@@ -21,14 +21,22 @@ class Crack
     end
   end
 
+  def clean_message_length
+    clean_message.length
+  end
+
+  def end_letters
+    clean_message.chars.pop(4)
+  end
+
   def end_letter_positions
-    clean_message.chars.pop(4).map do |letter|
+    end_letters.map do |letter|
       @alphabet.alpha_to_num[letter]
     end
   end
 
   def rotation
-    -1 * ((clean_message.length - offsets.size) % offsets.size)
+    -1 * ((clean_message_length - offsets.size) % offsets.size)
   end
 
   def end_encoded_pos
@@ -44,12 +52,12 @@ class Crack
 
   def all_key_options
     keys = []
-    " end".length.times do |key|
+    4.times do |key|
       key_options = (0..4).map do |num|
         number = (end_encoded_pos[key] - offsets[key] - end_decoded_pos[key]) + (@alphabet.size * num)
         number.to_s.rjust(2,"0")
       end.select do |num|
-        num.length <= 2
+        num.to_i > 0 && num.length <= 2
       end
       keys << key_options
     end
@@ -71,9 +79,8 @@ class Crack
               all_key_options[3].each do |d_key|
                 cd_num = d_key[0]
                 if c_num == cd_num
-                  return cracked = a_key + c_key + d_key[-1]
-                else
-                  return "This code is more complex and requires a different crack algorithm!"
+                  cracked = a_key + c_key + d_key[-1]
+                  return cracked
                 end
               end
             end
@@ -81,7 +88,6 @@ class Crack
         end
       end
     end
-    cracked
   end
 
 

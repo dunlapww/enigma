@@ -31,6 +31,14 @@ class Crack
 
   def end_letter_positions
     end_letters.map do |letter|
+
+  def end_offsets
+    rotation = (clean_message.length - offsets.size) % offsets.size
+    offsets.rotate(rotation)
+  end
+
+  def end_letter_positions
+    clean_message.chars.pop(4).map do |letter|
       @alphabet.alpha_to_num[letter]
     end
   end
@@ -89,32 +97,3 @@ class Crack
       end
     end
   end
-
-
-
-  # def cracks
-  #   key
-  #   all_key_options.each_with_index do |keys, index|
-  #     keys.each do |key|
-  #       prev_match = key.to_s[-1].to_i
-  #       if keys[index + 1].nil?
-  #         break
-  #       else
-  #         keys[index+ 1].each do |next_key|
-  #           next_match = next_key.to_s[0].to_i
-  #
-  #       require "pry"; binding.pry
-  #     end
-  #   end
-  # end
-
-
-
-
-
-
-  def decoded_message
-  end
-
-
-end

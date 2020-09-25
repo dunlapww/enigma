@@ -1,16 +1,33 @@
-The Enigma project can take a message in the form of a string and encode it using Enigma encryption algorithm which requires a randomingly generated 5 digit number and a date. It can also decode a message by reversing the Enigma algorithm.
+The Enigma project can take a message in the form of a string and do the following:
+1. encode it using Enigma encryption algorithm (uses a randomingly generated 5 digit key and a date)
+2. decrypt the message (given the key and date)
+3. crack encrypted messages as long as the decoded message concludes with the " end"
 
-**ITERATION PATTERN NOTE**
-My runners are called encrypt_runner.rb and decrypt_runner.rb because encrypt.rb and decrypt.rb were already taken as class names.
-When running from console, call as follows:
+To check out this project, do the following:
+
+1. Fork this repository and clone it locally
+2. Enter a message in the 'message.txt' file that you want to encrypt
+  - If you want to later crack this message, make sure your message ends with " end"
+3. To encrypt the message type the following the terminal:
 ```
-ruby ./lib/encrypt_runner.rb message.txt encrypted.txt    
-ruby ./lib/decrypt_runner.rb encrypted.txt decrypted.txt 65228 210920
+ruby ./lib/encrypt_runner.rb message.txt encrypted.txt
+=> Created encrypted.txt with the key 94327 and date 250920
 ```
 
+4. To decrypt this message type the following into the terminal (use the key and date output above):
+```
+ruby ./lib/decrypt_runner.rb encrypted.txt decrypted.txt 94327 250920
+=> Created decrypted.txt with the key 94327 and date 250920
+```
 
+5. To run the crack algorithm, make sure your message.txt ends in " end" and provide the date the date used to encrypt the message.  This will figure out the key that was used:
+```
+ruby ./lib/crack_runner.rb encrypted.txt decrypted.txt 250920
+=> Created decrypted.txt with the cracked key 67054 and date 250920
+```
+Note, that on occasion there is more than one key that will crack the message. So the key returned may not match the one used to encode the message.
 
-My assessment: 3.8
+My assessment: 4 out of 4
 
 Functionality: 4
 It can encode, decode, and crack messages and use the command line to do so.

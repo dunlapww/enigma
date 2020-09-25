@@ -12,17 +12,18 @@ ruby ./lib/decrypt_runner.rb encrypted.txt decrypted.txt 65228 210920
 
 My assessment: 3.8
 
-Functionality: 3.25
-It can encode and decode messages and use the command line to do so. I tried for 3 hours to solve crack, created a class and some tests and methods, but couldn't solve it (all on branch wd_crack)
+Functionality: 4
+It can encode, decode, and crack messages and use the command line to do so.
 
 Object Oriented Programming: 4
 I created several additional classes (Key, Offset, Shift) so that should we want to change how any aspect of the algorithm works we do so by adjusting any single class element.
 I also created a mixin module called Cryptable that has methods common to both the Encrypt and Decrypt classes; thereby drying up my code.
 
-Ruby Conventinos and Mechanics: 4
+Ruby Conventions and Mechanics: 4
 All of my methods are less than 10 lines and most are only that long for readability. My variable names attempt to describe the element rather than generally named.  I don't think I use each anywhere - trying to use the most efficient enumerable.
 
 Test Driven Development: 4
+
 I have 100% coverage according to simplecov when I use rake.  And git history will indicate I wrote tests before methods.
 I used stubs to make sure the random number and todays date would format correctly.
 

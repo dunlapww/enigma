@@ -1,6 +1,7 @@
 require 'date'
 require './lib/encrypt'
 require './lib/decrypt'
+require './lib/crack'
 
 class Enigma
 
@@ -25,5 +26,21 @@ class Enigma
       date: date
     }
   end
+
+  def crack(message, date = Date.today.strftime("%d%m%y"))
+    crack = Crack.new(message.downcase, date)
+    if crack.cracked.length > 5
+      crack.cracked
+    else
+      decrypt = Decrypt.new(message.downcase, crack.cracked, date)
+      {
+        decryption: decrypt.translate_message(decrypt.decode_shift),
+        key: crack.cracked,
+        date: date
+      }
+    end
+  end
+
+
 
 end

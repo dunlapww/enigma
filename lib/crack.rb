@@ -27,9 +27,12 @@ class Crack
     end
   end
 
+  def rotation
+    -1 * ((clean_message.length - offsets.size) % offsets.size)
+  end
+
   def end_encoded_pos
-    rotation = (clean_message.length - offsets.size) % offsets.size
-    end_letter_positions.rotate(-1 * rotation)
+    end_letter_positions.rotate(rotation)
   end
 
   def a_key_options
@@ -38,6 +41,12 @@ class Crack
     end.select do |num|
       num > 0 && num.to_s.length <= 2
     end
+  end
+
+  def end_decoded_pos
+    " end".split("").map do |char|
+      @alphabet.alpha_to_num[char]
+    end.rotate(rotation)
   end
 
 

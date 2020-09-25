@@ -44,9 +44,9 @@ class CrackTest < Minitest::Test
     assert_equal [4, 13, 3, 26], crack.end_decoded_pos
   end
 
-  def test_find_a_key
+  def test_all_keys
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal [2, 29, 56, 83], crack.a_key_options
+    assert_equal [2, 29, 56, 83], crack.all_key_options
   end
 
   def test_rotation
@@ -54,9 +54,9 @@ class CrackTest < Minitest::Test
     assert_equal -3, crack.rotation
   end
 
-  def test_b_key_options
+  def test_cracks
     crack = Crack.new("keqtaomthnw", "40895")
-    assert_equal [], crack.b_key_options
+    assert_equal [], crack.cracks
   end
 
 

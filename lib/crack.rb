@@ -42,21 +42,24 @@ class Crack
     end.rotate(rotation)
   end
 
-  def a_key_options
-    (0..4).map do |num|
-      (end_encoded_pos[0] - offsets[0] - end_decoded_pos[0]) + (@alphabet.size * num)
-    end.select do |num|
-      num > 0 && num.to_s.length <= 2
+  def all_key_options
+    keys = []
+    " end".length.times do |key|
+      key_options = (0..4).map do |num|
+        (end_encoded_pos[key] - offsets[key] - end_decoded_pos[key]) + (@alphabet.size * num)
+      end.select do |num|
+        num.to_s.length <= 2
+      end
+      keys << key_options
     end
+    keys
   end
 
-  def b_key_options
-    (0..4).map do |num|
-      (end_encoded_pos[0] - offsets[0] - end_decoded_pos[0]) + (@alphabet.size * num)
-    end.select do |num|
-      num > 0 && num.to_s.length <= 2
-    end
+  def cracks
+    
+
   end
+
 
 
 
@@ -64,6 +67,5 @@ class Crack
   def decoded_message
   end
 
-  def key
-  end
+
 end

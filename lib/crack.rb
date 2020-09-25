@@ -31,6 +31,8 @@ class Crack
 
   def end_letter_positions
     end_letters.map do |letter|
+    end
+  end
 
   def end_offsets
     rotation = (clean_message.length - offsets.size) % offsets.size
@@ -97,3 +99,5 @@ class Crack
       end
     end
   end
+
+end

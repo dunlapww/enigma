@@ -77,8 +77,4 @@ class CrackTest < Minitest::Test
     assert_equal "02715", crack.cracked
   end
 
-
-
-
-
 end

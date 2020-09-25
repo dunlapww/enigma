@@ -54,6 +54,11 @@ class CrackTest < Minitest::Test
     assert_equal -3, crack.rotation
   end
 
+  def test_b_key_options
+    crack = Crack.new("keqtaomthnw", "40895")
+    assert_equal [], crack.b_key_options
+  end
+
 
 
 

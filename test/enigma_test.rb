@@ -43,7 +43,7 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new()
     expected = {
       decryption: "hello world end",
-      key: ["08304"],
+      key: "08304",
       date: "291018"
     }
     assert_equal expected, enigma.crack("vjqtbeaweqihssi","291018")

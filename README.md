@@ -45,4 +45,4 @@ I have 100% coverage according to simplecov when I use rake.  And git history wi
 I used stubs to make sure the random number and todays date would format correctly.
 
 #### Version Control: 4
-I used several branches to create the project - encrypt, decrypt, refactor, wd_crack and committed regularly on each branch.  I merged one branch into my main locally and pushed that up.  All other times I pushed the branch to git hub and then created a pull request to move into main.
+I comitted regularly and used several branches to create the project - encrypt, decrypt, refactor, wd_crack.  Branches were pushed up to GitHub and then merged into main.

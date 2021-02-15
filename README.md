@@ -4,7 +4,7 @@ The Enigma project is an encryption/decryption algorithm similar to the one used
 - The project can then decrypt the message to its original form using the provided key and date.
 - Alternatively, there is a 'crack' algorithm that, if given the date of the encoded message, determines the key and decrypts the message.
 
-To try out this project, do the following:
+#### To try out this project, do the following:
 
 1. Fork this repository and clone it locally
 2. Enter a message in the 'message.txt' file that you want to encrypt

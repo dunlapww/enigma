@@ -1,14 +1,14 @@
 ## Project Enigma
-The Enigma project can take a message in the form of a string and do the following:
-1. encode it using Enigma encryption algorithm (uses a randomingly generated 5 digit key and a date)
-2. decrypt the message (given the key and date) by reversing the algorithm
-3. crack encrypted messages as long as the decoded message concludes with the " end" and we know the date that was used to encode the message.
+The Enigma project is an encryption/decryption algorithm similar to the one used by Germany in WWII to send messages to its troops. The algorithm was eventually cracked by Alan Turing and his 'Enigma' machine.  
+- This project takes a message as a string and encrypts it, and provides the encrypter with a 'key' and 'date' used to encrypt the message.
+- The project can then decrypt the message to its original form using the provided key and date.
+- Alternatively, there is a 'crack' algorithm that, if given the date of the encoded message, determines the key and decrypts the message.
 
-To check out this project, do the following:
+To try out this project, do the following:
 
 1. Fork this repository and clone it locally
 2. Enter a message in the 'message.txt' file that you want to encrypt
-  - If you want to later crack this message, make sure your message ends with " end"
+  - If you want to later crack this message, make sure your message ends with " end" (Alan Turing was able to crack the algorithm partially because the allied forces realized all Nazi communications ended with the word 'end'). This 'crack' algorithm, uses that same assumption.
 3. To encrypt the message type the following in the terminal:
 ```
 ruby ./lib/encrypt_runner.rb message.txt encrypted.txt
